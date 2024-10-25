@@ -1,0 +1,42 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.sdfghjkl"  // Your namespace
+    compileSdk = 33  // Set your compile SDK version
+
+    ndkVersion = "23.1.7779620"  // Specify your NDK version, if needed
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.sdfghjkl"  // Unique application ID
+        minSdk = 21  // Set your minimum SDK version
+        targetSdk = 33  // Set your target SDK version
+        versionCode = 1  // Version code for your app
+        versionName = "1.0"  // Version name for your app
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug  // Use debug signing for now
+            minifyEnabled false  // Disable minification (you can enable this later)
+            shrinkResources false  // Disable resource shrinking
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source = "../.."  // Point to the root of your Flutter project
+}
